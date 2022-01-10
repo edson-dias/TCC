@@ -1,0 +1,55 @@
+<div class="d-flex edit-promotion justify-content-center col-12 ">	
+	<div class="row-2 col-4">
+		<h1>Editar Oferta</h1>
+		<form #uploadForm = "ngForm" (ngSubmit)="update()">      
+			<div class="form-group">
+				<div class="row my-4">
+					<label for="name">Nome Promoção:</label>
+					<input [(ngModel)]="promotion.name" #name="ngModel" type="text" class="form-control" id="name" name="name" minlength="2" required>
+				</div>
+				<div class="row mb-4">
+					<label for="value">Preço:</label>
+					<input [(ngModel)]="promotion.value" #value="ngModel"type="text" class="form-control" id="value" name="value" required>
+				</div>
+				<div class="row mb-4">
+					<div class="card">
+						<h5 class="card-header">Lista de Produtos</h5>
+						<div class="card-body">
+							<ul class="list-group">
+								<li *ngFor="let item of promotion.lunchs; let i=index;" class="list-group-item">
+									<div class="row d-flex justify-content-start align-items-center">
+										<div class="col-8 ms-5">
+											{{item.lunchs.name}}
+									  	</div>
+										<div class="col-3">
+											<div class="row d-flex align-items-center">
+												<i class="fas fa-minus-square" (click)="item.quantity = item.quantity! - 1" style="width: 25px; margin-right: 10px;"></i>
+												<input type="text" class="form-control input-number text-center" [name]="item.lunchs.name!" style="width: 50px;" [(ngModel)]="item.quantity!">
+												<i class="fas fa-plus-square" (click)="item.quantity = item.quantity! + 1" style="width: 25px;"></i>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>  
+				</div>
+				<div class="row">
+					<label for="image">Imagem:</label>
+					<input type="file" class="form-control-file mb-4" name="profile" (change)="onFileSelect($event)" />
+				</div>
+			</div>
+			<div class="my-4">
+				<button type="submit" class="btn btn-primary" [disabled]="!uploadForm.form.valid">
+                    <i class="fa fa-save" aria-hidden="true"></i> Atualizar
+                </button>
+                <a class="btn btn-secondary" [routerLink]="['/admin/home']">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
+                </a>
+			</div>
+		</form>
+	</div>
+</div>
+
+
+

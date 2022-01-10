@@ -1,0 +1,38 @@
+<div class="list-promotion-container">
+	<div class="row mb-4">
+		<div class="col-6 d-flex justify-content-center">
+			<h1>Ofertas</h1>
+		</div>
+		<div class="col-6 d-flex justify-content-center">
+			<a class="btn btn-xs btn-primary promo-insert" [routerLink]="['/admin/ofertas/novo']">Nova Oferta</a>
+		</div>
+	</div>
+	<table class="table table-striped table-bordered table-hover">
+		<tbody>
+		<tr>
+			<th>Imagem</th>
+			<th>Nome</th>
+			<th>Itens</th>
+			<th>Preço</th>
+			<th>Ações</th>
+		</tr>
+		<tr *ngFor="let promotion of promotions">
+			<td><img src="{{promotion.image}}" alt="" width="150px" height="100px"></td>
+			<td>{{promotion.name}}</td>
+			<td>
+				<ul *ngFor="let lunch of promotion.lunchs">
+					{{lunch.lunchs.name}} - {{lunch.quantity}}
+				</ul>	
+			</td>
+			<td>{{promotion.value}}</td>
+			<td>
+				<a class="btn btn-xs btn-info" [routerLink]="['/admin/ofertas/editar/', promotion.id]">Editar</a>
+				<a href="#" title="Remover" alt="Remover" class="btn btn-xs btn-danger" (click)="remove($event, promotion)">
+					<i class="fa fa-times" aria-hidden="true"></i> Remover
+				</a>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<p *ngIf="promotions.length==0">Nenhuma oferta cadastrada.</p>
+</div>

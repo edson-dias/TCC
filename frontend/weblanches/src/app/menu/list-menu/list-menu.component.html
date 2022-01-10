@@ -1,0 +1,57 @@
+<head>
+	<link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet'>
+	<style>
+		h4, h3, h2, h1{
+			font-family: 'Bangers';
+		}
+	</style>
+</head>
+	
+<div class="menu container-fluid d-flex justify-content-center">
+	<div class="col-8">	
+		<div class="row d-flex">
+			<div class="col d-flex justify-content-start">
+				<h1>Cardápio</h1>
+			</div>
+			<div class="col d-flex justify-content-end">
+				<a class="btn btn-xs btn-info" (click)="openFilterModal(filters)" style="height: 40px;">Filtrar</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="card" *ngFor="let lunch of lunchs" style="margin-bottom: 15px;">
+				<div class="card-body">
+					<div class="row d-flex justify-content-center">
+						<div class="col-4 d-flex justify-content-center">
+							<div class="row">
+								<div class="col">
+									<h4>{{lunch.name}}</h4>
+									<img src="{{lunch.image}}" alt="" width="300px" height="250px" style="border-radius: 5px;">
+								</div>
+							</div>
+						</div>
+						<div class="col-4 d-flex justify-content-center">
+							<div class="row">
+								<div class="col">
+									<h4>INGREDIENTES</h4>
+									<ul>
+										<li *ngFor="let ing of lunch.ingredients">{{ing.name}}</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="col-4 d-flex justify-content-center">
+							<div class="row">
+								<div class="col">
+									<h4>VALOR UN.</h4>
+									<h4>R$ {{lunch.value}}</h4>
+								</div>
+								<i *ngIf="lunch.veggie" class="fas fa-seedling" style="color: green;"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<p *ngIf="lunchs?.length==0">Nenhum lanche cadastrada.</p>
+		</div>
+	</div>
+</div>

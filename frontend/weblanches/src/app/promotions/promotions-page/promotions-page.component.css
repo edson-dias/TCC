@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+h5, h4, h3{
+    font-family: bangers;
+}
+
+#carousel-section{
+    display: flex;
+    width: 100%;
+    background: rgba(110, 110, 201, 0.562);
+}
+#cards-section{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: rgb(211, 210, 196);
+}

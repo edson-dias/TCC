@@ -1,0 +1,55 @@
+<div class="d-flex promotion justify-content-center col-12 ">	
+	<div class="row-2 col-4">
+		<h1>Nova Promoção</h1>
+		<form #uploadForm = "ngForm" (ngSubmit)="insert()">      
+			<div class="form-group">
+				<div class="row my-4">
+					<label for="name">Nome Promoção:</label>
+					<input type="text" class="form-control" id="name" name="name" [(ngModel)]="promotion.name" #name="ngModel" required>
+				</div>
+				<div class="row mb-4">
+					<label for="value">Preço:</label>
+					<input type="text" class="form-control" id="value" name="value" [(ngModel)]="promotion.value" #value="ngModel" required>
+				</div>
+				<div class="row mb-4">
+					<div class="card">
+						<h5 class="card-header">Lista de Produtos</h5>
+						<div class="card-body">
+							<ul class="list-group">
+								<li *ngFor="let item of lunchPromotion; let i=index;" class="list-group-item">
+									<div class="row d-flex justify-content-start align-items-center">
+										<div class="col-8 ms-5">
+											{{item.name}}
+									  	</div>
+										<div class="col-3">
+											<div class="row d-flex align-items-center">
+												<i class="fas fa-minus-square" (click)="lunchPromotion[i].quantity = lunchPromotion[i].quantity! - 1" style="width: 25px; margin-right: 10px;"></i>
+												<input type="text" class="form-control input-number text-center" [name]="lunchPromotion[i].name!" style="width: 50px;" [(ngModel)]="lunchPromotion[i].quantity!">
+												<i class="fas fa-plus-square" (click)="lunchPromotion[i].quantity = lunchPromotion[i].quantity! + 1" style="width: 25px;"></i>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>  
+				</div>
+				<div class="row">
+					<label for="image">Imagem:</label>
+					<input type="file" class="form-control-file mb-4" name="image" (change)="onFileSelect($event)" />
+				</div>
+			</div>
+			<div class="my-4">
+				<a class="btn btn-secondary mx-4" [routerLink]="['/admin/ofertas/listar']">
+					<i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
+				</a>
+				<button type="submit" class="btn btn-primary mx-4" [disabled]="!uploadForm.form.valid">
+					<i class="fa fa-save" aria-hidden="true"></i> Salvar
+				</button>
+			</div>
+		</form>
+	</div>
+</div>
+
+
+

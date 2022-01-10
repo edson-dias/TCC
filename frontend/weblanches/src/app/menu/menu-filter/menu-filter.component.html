@@ -1,0 +1,63 @@
+<head>
+	<link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet'>
+	<style>
+		h6, h5, h4, h3, h2, h1{
+			font-family: 'Bangers';
+		}
+	</style>
+</head>
+
+<div class="modal-header">
+    <h4 class="modal-title" id="modalLabel">Filtros</h4>
+</div>
+<div class="modal-body text-center">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true"><h5>Valores</h5></button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false"><h5>Ingredientes</h5></button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false"><h5>Veggie</h5></button>
+        </li>
+    </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="row">
+                                <h5 style="width: 65px;">De</h5>
+                                <input class="form-control" style="width: 130px;" type="text" placeholder="R$ 00,00" [(ngModel)]="filters.minValue">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row">
+                                <h5 style="width: 65px;">Até</h5>
+                                <input class="form-control" style="width: 130px;" type="text" placeholder="R$ 00,00" [(ngModel)]="filters.maxValue">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div *ngFor="let ingredient of filters.ingredients" class="form-group">
+                <label for="residencial"><h6>{{ingredient.name}}:</h6></label>
+                <input type="checkbox" class="form-check-input" id="residencial" name="residencial" [(ngModel)]="ingredient.status">
+            </div>
+        </div>
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+            <div class="form-group">
+                <label for="residencial"><h6>Apenas Vegetariano?</h6></label>
+                <input type="checkbox" class="form-check-input" id="residencial" name="residencial" [(ngModel)]="filters.veggie">
+            </div>
+        </div>
+      </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="filterLunchs()">Aplicar Filtros</button>
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close()">Fechar</button>
+</div>

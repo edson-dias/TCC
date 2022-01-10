@@ -1,0 +1,23 @@
+<header>
+  <div class="title">
+    <a class="navbar-brand" [routerLink]="['/']">WebLanches</a>
+  </div>
+  <div class="links">
+    <div [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }">
+      <a [routerLink]="['/']">Home</a>
+    </div>
+    <div [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }">
+      <a [routerLink]="['/cardapio']">Cardapio</a>
+    </div>
+    <div [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }">
+      <a [routerLink]="['/ofertas']">Ofertas</a>
+    </div>
+    <div [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }">
+      <a [routerLink]="['/delivery']">Delivery</a>
+    </div>
+    <input type="text" placeholder="Pesquisar Lanches">
+    <div [routerLinkActive]="['link-active']">
+      <a [routerLink]="['/admin/home']">Admin</a>
+    </div>
+  </div>
+</header>

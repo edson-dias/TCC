@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+h5, h4, h3{
+    font-family: bangers;
+}
+
+#carousel-section{
+    display: flex;
+    width: 100%;
+}
+#infos-section{
+    display: flex;
+    width: 100%;
+    height: 60vh;
+    background: rgba(110, 110, 201, 0.562);
+}
+.infos{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-top: 60px;
+    padding-left: 100px;
+    background: rgba(165, 42, 42, 0.863);
+}
+
+.title{
+    padding-bottom: 60px;
+}
+.title h3{
+    font-size: 2.2rem;
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 25px;
+}
+.info h4{
+    font-size: 1.6rem;
+}
+
+.map{
+    width: 50%;
+    height: 100%;
+}
+.map iframe{
+    width: 100%;
+    height: 100%;
+}

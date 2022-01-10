@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+
+h4{
+    font-family: bangers;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 350px;
+    height: 450px;
+    background: rgb(87, 54, 87);
+    padding: 0px;
+    margin: 50px;
+    border-radius: 20px;
+}
+.img{
+    width: 100%;
+    height: 55%;
+}
+.img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.card:hover{
+    cursor: pointer;
+    background: rgba(128, 0, 128, 0.479);
+}

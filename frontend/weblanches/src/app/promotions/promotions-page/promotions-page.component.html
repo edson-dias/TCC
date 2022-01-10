@@ -1,0 +1,27 @@
+<section id="carousel-section">
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="../../../assets/images/home/lanche9.jpg" width="100%" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="../../../assets/images/home/lanche6.jpg" width="100%" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="../../../assets/images/home/lanche7.jpg" width="100%" alt="...">
+      </div>
+    </div>
+  </div> 
+  </section>
+  
+  <section id="cards-section">
+    <span *ngFor="let card of cardData">
+        <app-promotions-card 
+            cardImg="{{card.image}}" 
+            cardPrice="{{card.value}}"
+            cardId="{{card.id}}"
+            cardName="{{card.name}}"
+            (click)="addToCart()"
+        ></app-promotions-card>
+    </span>  
+  </section>

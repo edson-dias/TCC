@@ -1,0 +1,5 @@
+export * from './lunch.model'
+export * from './ingredient.model'
+export * from './menu-filter.model'
+export * from './promotion'
+export * from './lunch-promotion.model'

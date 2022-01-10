@@ -1,0 +1,29 @@
+<h1>Lanches</h1>
+
+<table class="table table-striped table-bordered table-hover">
+    <tbody>
+	<tr>
+	    <th>Imagem</th>
+	    <th>Nome</th>
+		<th>Ingredientes</th>
+        <th>Preço</th>
+        <th>Veggie</th>
+		<th>Ações</th>
+	</tr>
+	<tr *ngFor="let lunch of lunchs">
+	    <td><img src="{{lunch.image}}" alt="" width="150px" height="100px"></td>
+        <td>{{lunch.name}}</td>
+	    <td><span *ngFor="let ing of lunch.ingredients">{{ing.name}}</span></td>
+        <td>{{lunch.value}}</td>
+        <td>{{lunch.veggie}}</td>
+		<td>
+			<a class="btn btn-xs btn-info" [routerLink]="['/admin/lanches/editar/', lunch.id]">Editar</a>
+			<a href="#" title="Remover" alt="Remover" class="btn btn-xs btn-danger" (click)="remove($event, lunch)">
+				<i class="fa fa-times" aria-hidden="true"></i> Remover
+			</a>
+		</td>
+	</tr>
+    </tbody>
+</table>
+<a class="btn btn-xs btn-primary" [routerLink]="['/admin/lanches/novo']">Novo Lanche</a>
+<p *ngIf="lunchs.length==0">Nenhum lanche cadastrado.</p>
